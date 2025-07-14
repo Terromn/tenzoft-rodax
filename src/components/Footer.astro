@@ -62,13 +62,11 @@ const contactInfo = {
         <div class="lg:col-span-2">
           <!-- Logo and Tagline -->
           <div class="flex items-center space-x-3 mb-6">
-            <div class="w-12 h-12 bg-rodax-orange rounded-lg flex items-center justify-center">
-              <span class="text-xl font-bold">R</span>
-            </div>
-            <div>
-              <h3 class="text-2xl font-bold text-rodax-orange">RODAX</h3>
-              <p class="text-sm text-gray-300">Refacciones</p>
-            </div>
+            <img 
+              src="/assets/logo.png" 
+              alt="Rodax Refacciones Logo" 
+              class="h-12 w-auto"
+            />
           </div>
           
           <p class="text-gray-300 mb-6 leading-relaxed">
@@ -79,17 +77,17 @@ const contactInfo = {
           <!-- Contact Information -->
           <div class="space-y-3 mb-6">
             <div class="flex items-start space-x-3">
-              <span class="text-rodax-orange mt-1">📍</span>
+              <span class="text-rodax-light-blue mt-1">📍</span>
               <div>
                 <p class="text-sm font-medium">Dirección:</p>
                 <p class="text-sm text-gray-300">{contactInfo.address}</p>
               </div>
             </div>
             <div class="flex items-center space-x-3">
-              <span class="text-rodax-orange">📞</span>
+              <span class="text-rodax-light-blue">📞</span>
               <div>
                 <p class="text-sm font-medium">Teléfono:</p>
-                <a href={`tel:${contactInfo.phone}`} class="text-sm text-gray-300 hover:text-rodax-orange">
+                <a href={`tel:${contactInfo.phone}`} class="text-sm text-gray-300 hover:text-rodax-light-blue">
                   {contactInfo.phone}
                 </a>
               </div>
@@ -265,7 +263,7 @@ const contactInfo = {
       <!-- Phone Button -->
       <a 
         href={`tel:${contactInfo.phone}`}
-        class="bg-rodax-orange hover:bg-orange-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300"
+        class="bg-orange-500 hover:bg-orange-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300"
         title="Llamar ahora"
       >
         <span class="text-2xl">📞</span>

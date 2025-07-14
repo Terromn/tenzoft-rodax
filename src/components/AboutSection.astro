@@ -81,7 +81,7 @@ const certifications = [
         ¿Quiénes Somos?
       </h2>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-        Somos <span class="text-rodax-orange font-semibold">Rodax Refacciones</span>, 
+        Somos <span class="text-rodax-blue font-semibold">Rodax Refacciones</span>, 
         tu socio de confianza en Saltillo para mantener tu flota de transporte pesado 
         en óptimas condiciones.
       </p>
@@ -134,7 +134,7 @@ const certifications = [
       <!-- Visual/Stats -->
       <div class="relative">
         <!-- Main Visual -->
-        <div class="bg-gradient-to-br from-rodax-blue to-blue-600 rounded-2xl p-8 text-white">
+        <div class="bg-gradient-to-br from-rodax-blue to-rodax-light-blue rounded-2xl p-8 text-white">
           <div class="text-center mb-8">
             <div class="text-6xl mb-4">🏭</div>
             <h4 class="text-xl font-bold mb-2">Centro de Distribución Saltillo</h4>
@@ -203,7 +203,7 @@ const certifications = [
         </h3>
         <div class="space-y-4">
           {certifications.map((cert) => (
-            <div class="flex items-center space-x-4 p-4 border border-gray-200 rounded-lg hover:border-rodax-orange transition-colors">
+            <div class="flex items-center space-x-4 p-4 border border-gray-200 rounded-lg hover:border-rodax-light-blue transition-colors">
               <div class="text-2xl">{cert.badge}</div>
               <div>
                 <h4 class="font-semibold text-gray-800">{cert.name}</h4>
@@ -213,21 +213,21 @@ const certifications = [
         </div>
 
         <!-- Contact CTA -->
-        <div class="mt-8 p-6 bg-rodax-orange text-white rounded-lg">
+        <div class="mt-8 p-6 bg-rodax-blue text-white rounded-lg">
           <h4 class="font-bold mb-2">¿Tienes Preguntas?</h4>
-          <p class="text-orange-100 text-sm mb-4">
+                      <p class="text-blue-100 text-sm mb-4">
             Nuestro equipo técnico está disponible para asesorarte
           </p>
           <div class="flex flex-col sm:flex-row gap-3">
             <a 
               href="tel:+528441234567" 
-              class="bg-white text-rodax-orange px-4 py-2 rounded font-medium text-center hover:bg-gray-100 transition-colors"
+              class="bg-white text-rodax-blue px-4 py-2 rounded font-medium text-center hover:bg-gray-100 transition-colors"
             >
               📞 (844) 123-4567
             </a>
             <a 
               href="/contacto" 
-              class="border border-white text-white px-4 py-2 rounded font-medium text-center hover:bg-orange-600 transition-colors"
+              class="border border-white text-white px-4 py-2 rounded font-medium text-center hover:bg-rodax-light-blue transition-colors"
             >
               Contactar Ahora
             </a>

@@ -110,7 +110,7 @@ function renderStars(rating: number) {
       {successMetrics.map((metric) => (
         <div class="bg-white rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-shadow">
           <div class="text-4xl mb-3">{metric.icon}</div>
-          <div class="text-3xl font-bold text-rodax-orange mb-2">{metric.metric}</div>
+          <div class="text-3xl font-bold text-rodax-blue mb-2">{metric.metric}</div>
           <div class="text-gray-600 text-sm">{metric.label}</div>
         </div>
       ))}
@@ -152,11 +152,11 @@ function renderStars(rating: number) {
             <!-- Customer Stats -->
             <div class="flex justify-between text-xs text-gray-600 bg-gray-50 rounded-lg p-3">
               <div class="text-center">
-                <div class="font-semibold text-rodax-orange">{testimonial.trucksCount}</div>
+                <div class="font-semibold text-rodax-blue">{testimonial.trucksCount}</div>
                 <div>Unidades</div>
               </div>
               <div class="text-center">
-                <div class="font-semibold text-rodax-orange">{testimonial.yearsAsClient}+</div>
+                <div class="font-semibold text-rodax-blue">{testimonial.yearsAsClient}+</div>
                 <div>Años Cliente</div>
               </div>
             </div>
@@ -176,34 +176,34 @@ function renderStars(rating: number) {
           <div class="text-4xl mb-3">🏢</div>
           <h4 class="font-semibold text-gray-800 mb-2">Grandes Flotas</h4>
           <p class="text-sm text-gray-600">Empresas con 50+ unidades</p>
-          <div class="text-xs text-rodax-orange font-medium mt-2">1,200+ clientes</div>
+          <div class="text-xs text-rodax-blue font-medium mt-2">1,200+ clientes</div>
         </div>
         
         <div class="text-center p-6 bg-white rounded-lg shadow-sm">
           <div class="text-4xl mb-3">🚛</div>
           <h4 class="font-semibold text-gray-800 mb-2">Medianas Empresas</h4>
           <p class="text-sm text-gray-600">Flotas de 10-50 camiones</p>
-          <div class="text-xs text-rodax-orange font-medium mt-2">2,800+ clientes</div>
+          <div class="text-xs text-rodax-blue font-medium mt-2">2,800+ clientes</div>
         </div>
         
         <div class="text-center p-6 bg-white rounded-lg shadow-sm">
           <div class="text-4xl mb-3">🔧</div>
           <h4 class="font-semibold text-gray-800 mb-2">Talleres</h4>
           <p class="text-sm text-gray-600">Servicios especializados</p>
-          <div class="text-xs text-rodax-orange font-medium mt-2">650+ talleres</div>
+          <div class="text-xs text-rodax-blue font-medium mt-2">650+ talleres</div>
         </div>
         
         <div class="text-center p-6 bg-white rounded-lg shadow-sm">
           <div class="text-4xl mb-3">👨‍🚛</div>
           <h4 class="font-semibold text-gray-800 mb-2">Hombre Camión</h4>
           <p class="text-sm text-gray-600">Operadores independientes</p>
-          <div class="text-xs text-rodax-orange font-medium mt-2">350+ operadores</div>
+          <div class="text-xs text-rodax-blue font-medium mt-2">350+ operadores</div>
         </div>
       </div>
     </div>
 
     <!-- CTA Section -->
-    <div class="mt-16 bg-gradient-to-r from-rodax-blue to-blue-600 rounded-2xl p-8 text-white text-center">
+    <div class="mt-16 bg-gradient-to-r from-rodax-blue to-rodax-light-blue rounded-2xl p-8 text-white text-center">
       <h3 class="text-2xl font-bold mb-4">
         ¿Listo para Unirte a Nuestros Clientes Satisfechos?
       </h3>
@@ -215,13 +215,13 @@ function renderStars(rating: number) {
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a 
           href="/cotizacion"
-          class="bg-rodax-orange hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg transition-colors"
+          class="bg-white text-rodax-blue hover:bg-gray-100 font-bold py-3 px-8 rounded-lg transition-colors"
         >
           Solicitar Cotización
         </a>
         <a 
           href="tel:+528441234567"
-          class="border-2 border-white text-white hover:bg-white hover:text-rodax-blue font-bold py-3 px-8 rounded-lg transition-colors"
+          class="border-2 border-white text-white hover:bg-rodax-white hover:text-rodax-dark font-bold py-3 px-8 rounded-lg transition-colors"
         >
           📞 Hablar con Experto
         </a>
