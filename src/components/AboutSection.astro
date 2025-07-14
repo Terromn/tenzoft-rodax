@@ -1,0 +1,266 @@
+---
+// About Section for Rodax Refacciones
+// Showcases company values, experience, and competitive advantages
+
+// Company stats and achievements
+const companyStats = [
+  { number: "15+", label: "Años de Experiencia", icon: "📅" },
+  { number: "5,000+", label: "Clientes Satisfechos", icon: "👥" },
+  { number: "50,000+", label: "Productos Vendidos", icon: "📦" },
+  { number: "24/7", label: "Soporte Técnico", icon: "🔧" }
+];
+
+// Core values and competitive advantages
+const coreValues = [
+  {
+    title: "Calidad Garantizada",
+    description: "Solo trabajamos con marcas reconocidas mundialmente como Fleetguard, Donaldson, Bendix y Philips.",
+    icon: "⭐",
+    color: "bg-blue-500"
+  },
+  {
+    title: "Entrega Inmediata",
+    description: "Stock permanente en Saltillo con entregas el mismo día y envío gratis en pedidos mayores a $2,000.",
+    icon: "🚚",
+    color: "bg-green-500"
+  },
+  {
+    title: "Experiencia Técnica",
+    description: "Nuestro equipo tiene más de 15 años especializándose en refacciones para transporte pesado.",
+    icon: "🔧",
+    color: "bg-orange-500"
+  },
+  {
+    title: "Precios Competitivos",
+    description: "Relación directa con fabricantes nos permite ofrecer los mejores precios del mercado.",
+    icon: "💰",
+    color: "bg-purple-500"
+  }
+];
+
+// Team highlights
+const teamHighlights = [
+  {
+    name: "Departamento Técnico",
+    description: "Especialistas en diagnóstico y asesoría técnica",
+    icon: "👨‍🔧"
+  },
+  {
+    name: "Logística",
+    description: "Coordinación de entregas y distribución eficiente",
+    icon: "📋"
+  },
+  {
+    name: "Ventas",
+    description: "Atención personalizada y cotizaciones rápidas",
+    icon: "🤝"
+  },
+  {
+    name: "Calidad",
+    description: "Control de calidad y garantías",
+    icon: "✅"
+  }
+];
+
+// Trusted brands/certifications
+const certifications = [
+  { name: "Distribuidor Autorizado Fleetguard", badge: "🏆" },
+  { name: "Partner Oficial Donaldson", badge: "🥇" },
+  { name: "Certificación ISO 9001", badge: "📜" },
+  { name: "Miembro ANPACT", badge: "🏛️" }
+];
+---
+
+<!-- About Section -->
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+        ¿Quiénes Somos?
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Somos <span class="text-rodax-orange font-semibold">Rodax Refacciones</span>, 
+        tu socio de confianza en Saltillo para mantener tu flota de transporte pesado 
+        en óptimas condiciones.
+      </p>
+    </div>
+
+    <!-- Company Story -->
+    <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+      
+      <!-- Content -->
+      <div class="space-y-6">
+        <div class="space-y-4">
+          <h3 class="text-2xl font-bold text-gray-800">
+            Nuestra Historia
+          </h3>
+          <p class="text-gray-600 leading-relaxed">
+            Desde 2008, hemos sido el proveedor preferido de refacciones para transporte pesado 
+            en Saltillo y la región norte de México. Comenzamos con una visión clara: 
+            <strong>ofrecer productos de calidad mundial con servicio local excepcional.</strong>
+          </p>
+          <p class="text-gray-600 leading-relaxed">
+            Hoy, después de más de 15 años, seguimos comprometidos con esa misión, 
+            atendiendo a más de 5,000 clientes que confían en nosotros para mantener 
+            sus operaciones funcionando sin interrupciones.
+          </p>
+        </div>
+
+        <!-- Mission & Vision -->
+        <div class="grid md:grid-cols-2 gap-6 mt-8">
+          <div class="bg-blue-50 p-6 rounded-lg">
+            <h4 class="font-bold text-blue-800 mb-2 flex items-center">
+              <span class="mr-2">🎯</span> Misión
+            </h4>
+            <p class="text-blue-700 text-sm">
+              Proporcionar refacciones de calidad superior para transporte pesado, 
+              con entrega inmediata y asesoría técnica especializada.
+            </p>
+          </div>
+          <div class="bg-orange-50 p-6 rounded-lg">
+            <h4 class="font-bold text-orange-800 mb-2 flex items-center">
+              <span class="mr-2">👁️</span> Visión
+            </h4>
+            <p class="text-orange-700 text-sm">
+              Ser el distribuidor líder de refacciones para transporte pesado 
+              en el norte de México, reconocidos por calidad y servicio.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual/Stats -->
+      <div class="relative">
+        <!-- Main Visual -->
+        <div class="bg-gradient-to-br from-rodax-blue to-blue-600 rounded-2xl p-8 text-white">
+          <div class="text-center mb-8">
+            <div class="text-6xl mb-4">🏭</div>
+            <h4 class="text-xl font-bold mb-2">Centro de Distribución Saltillo</h4>
+            <p class="text-blue-100 text-sm">
+              Almacén de 2,000 m² con más de 10,000 productos en stock
+            </p>
+          </div>
+          
+          <!-- Quick Stats -->
+          <div class="grid grid-cols-2 gap-4">
+            {companyStats.map((stat) => (
+              <div class="text-center bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                <div class="text-2xl mb-1">{stat.icon}</div>
+                <div class="text-2xl font-bold">{stat.number}</div>
+                <div class="text-xs text-blue-100">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core Values -->
+    <div class="mb-16">
+      <h3 class="text-2xl font-bold text-gray-800 text-center mb-10">
+        ¿Por Qué Elegir Rodax?
+      </h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {coreValues.map((value) => (
+          <div class="text-center group">
+            <div class={`${value.color} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+              <span class="text-2xl text-white">{value.icon}</span>
+            </div>
+            <h4 class="font-bold text-gray-800 mb-3">{value.title}</h4>
+            <p class="text-gray-600 text-sm leading-relaxed">{value.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Team & Departments -->
+    <div class="grid lg:grid-cols-2 gap-12 mb-16">
+      
+      <!-- Team Structure -->
+      <div>
+        <h3 class="text-2xl font-bold text-gray-800 mb-6">
+          Nuestro Equipo Especializado
+        </h3>
+        <div class="space-y-4">
+          {teamHighlights.map((team) => (
+            <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+              <div class="text-3xl">{team.icon}</div>
+              <div>
+                <h4 class="font-semibold text-gray-800">{team.name}</h4>
+                <p class="text-gray-600 text-sm">{team.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div>
+        <h3 class="text-2xl font-bold text-gray-800 mb-6">
+          Certificaciones y Reconocimientos
+        </h3>
+        <div class="space-y-4">
+          {certifications.map((cert) => (
+            <div class="flex items-center space-x-4 p-4 border border-gray-200 rounded-lg hover:border-rodax-orange transition-colors">
+              <div class="text-2xl">{cert.badge}</div>
+              <div>
+                <h4 class="font-semibold text-gray-800">{cert.name}</h4>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="mt-8 p-6 bg-rodax-orange text-white rounded-lg">
+          <h4 class="font-bold mb-2">¿Tienes Preguntas?</h4>
+          <p class="text-orange-100 text-sm mb-4">
+            Nuestro equipo técnico está disponible para asesorarte
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a 
+              href="tel:+528441234567" 
+              class="bg-white text-rodax-orange px-4 py-2 rounded font-medium text-center hover:bg-gray-100 transition-colors"
+            >
+              📞 (844) 123-4567
+            </a>
+            <a 
+              href="/contacto" 
+              class="border border-white text-white px-4 py-2 rounded font-medium text-center hover:bg-orange-600 transition-colors"
+            >
+              Contactar Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coverage Area -->
+    <div class="bg-gray-50 rounded-xl p-8 text-center">
+      <h3 class="text-2xl font-bold text-gray-800 mb-4">
+        Área de Cobertura
+      </h3>
+      <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+        Atendemos toda la región norte de México con entregas especializadas para transporte pesado
+      </p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="text-center">
+          <div class="text-4xl mb-2">🎯</div>
+          <h4 class="font-semibold text-gray-800">Entrega Inmediata</h4>
+          <p class="text-gray-600 text-sm">Saltillo y zona metropolitana</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl mb-2">🚛</div>
+          <h4 class="font-semibold text-gray-800">Envío Express</h4>
+          <p class="text-gray-600 text-sm">Coahuila, Nuevo León, Tamaulipas</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl mb-2">📦</div>
+          <h4 class="font-semibold text-gray-800">Envío Nacional</h4>
+          <p class="text-gray-600 text-sm">Todo México 24-48 hrs</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 

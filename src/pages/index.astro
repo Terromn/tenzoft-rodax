@@ -1,16 +1,57 @@
 ---
-
+// Import all components for the landing page
+import HeroSection from '../components/HeroSection.astro';
+import ProductsSection from '../components/ProductsSection.astro';
+import AboutSection from '../components/AboutSection.astro';
+import TestimonialsSection from '../components/TestimonialsSection.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		
+		<!-- SEO Meta Tags -->
+		<title>Rodax Refacciones - Repuestos para Camiones Pesados en Saltillo</title>
+		<meta name="description" content="Rodax Refacciones: Tu proveedor de confianza en Saltillo para refacciones de camiones pesados. Entrega inmediata, servicio personalizado y marcas reconocidas como Fleetguard, Donaldson y más." />
+		<meta name="keywords" content="refacciones, camiones pesados, Saltillo, Fleetguard, Donaldson, Philips, AMTRK, repuestos" />
+		
+		<!-- Open Graph Tags -->
+		<meta property="og:title" content="Rodax Refacciones - Repuestos para Camiones Pesados" />
+		<meta property="og:description" content="Entrega inmediata en Saltillo, servicio personalizado y marcas de calidad mundial." />
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="es_MX" />
+		
+		<!-- Additional Meta Tags -->
+		<meta name="robots" content="index, follow" />
+		<meta name="author" content="Rodax Refacciones" />
+		
+		<!-- Preload fonts for better performance -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="font-sans antialiased">
+		<!-- Amazon-style Hero Section -->
+		<HeroSection />
+		
+		<!-- Products Section -->
+		<ProductsSection />
+		
+		<!-- About Us Section -->
+		<AboutSection />
+		
+		<!-- Testimonials Section -->
+		<TestimonialsSection />
+		
+		<!-- Footer -->
+		<Footer />
+		
+		<!-- Load test script for development -->
+		<script src="/src/test/HeroSection.test.js"></script>
 	</body>
 </html>

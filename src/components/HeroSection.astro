@@ -1,0 +1,251 @@
+---
+// Amazon-style Hero Section for Rodax Refacciones
+// E-commerce focused design with modern UI elements
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  searchPlaceholder?: string;
+}
+
+const {
+  title = "Refacciones para Camiones Pesados",
+  subtitle = "Todo lo que necesitas para mantener tu flota en movimiento",
+  searchPlaceholder = "Buscar filtros, cables, acoples por marca o modelo..."
+} = Astro.props;
+
+// Featured categories for Amazon-style navigation (based on real Rodax inventory)
+const featuredCategories = [
+  { name: "Filtros", icon: "🔧", count: "2,847+", href: "/filtros" },
+  { name: "Eléctrico", icon: "⚡", count: "1,265+", href: "/electrico" },
+  { name: "Motor", icon: "⚙️", count: "3,180+", href: "/motor" },
+  { name: "Frenos", icon: "🛑", count: "1,120+", href: "/frenos" },
+  { name: "Transmisión", icon: "🔄", count: "845+", href: "/transmision" },
+  { name: "Suspensión", icon: "🏗️", count: "920+", href: "/suspension" }
+];
+
+// Promotional banners
+const promos = [
+  { 
+    title: "Envío GRATIS", 
+    subtitle: "En pedidos +$2,000", 
+    bgColor: "bg-green-500",
+    icon: "🚚"
+  },
+  { 
+    title: "Entrega Hoy", 
+    subtitle: "Saltillo y zona metro", 
+    bgColor: "bg-blue-500",
+    icon: "⚡"
+  },
+  { 
+    title: "Garantía", 
+    subtitle: "12 meses en todo", 
+    bgColor: "bg-orange-500",
+    icon: "🛡️"
+  }
+];
+---
+
+<!-- Amazon-style Header Section -->
+<section class="bg-rodax-dark text-white">
+  <!-- Top Navigation Bar -->
+  <div class="bg-gray-900 py-2">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center text-sm">
+        <div class="flex space-x-4">
+          <span>📍 Saltillo, Coahuila</span>
+          <span>📞 (844) 123-4567</span>
+        </div>
+        <div class="flex space-x-4">
+          <a href="/login" class="hover:text-rodax-orange">Iniciar Sesión</a>
+          <a href="/register" class="hover:text-rodax-orange">Registrarse</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <div class="bg-rodax-dark py-4">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3">
+          <div class="w-12 h-12 bg-rodax-orange rounded-lg flex items-center justify-center">
+            <span class="text-xl font-bold">R</span>
+          </div>
+          <div>
+            <h1 class="text-2xl font-bold text-rodax-orange">RODAX</h1>
+            <p class="text-xs text-gray-300">Refacciones</p>
+          </div>
+        </div>
+
+        <!-- Search Bar (Amazon-style) -->
+        <div class="flex-1 max-w-3xl mx-8">
+          <div class="relative">
+                         <select class="absolute left-0 top-0 h-full bg-gray-200 text-gray-800 px-3 rounded-l-lg border-r border-gray-300 text-sm">
+               <option>Todas las categorías</option>
+               <option>Filtros</option>
+               <option>Eléctrico</option>
+               <option>Motor</option>
+               <option>Frenos</option>
+               <option>Transmisión</option>
+               <option>Suspensión</option>
+             </select>
+            <input 
+              type="text" 
+              placeholder={searchPlaceholder}
+              class="w-full py-3 pl-40 pr-16 text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-rodax-orange"
+            />
+            <button class="absolute right-0 top-0 h-full bg-rodax-orange hover:bg-orange-600 px-6 rounded-r-lg transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Cart & Account -->
+        <div class="flex items-center space-x-6">
+          <div class="text-center">
+            <div class="text-xs text-gray-300">Cotizaciones</div>
+            <div class="font-semibold">📋 Lista</div>
+          </div>
+          <div class="text-center relative">
+            <div class="text-xs text-gray-300">Carrito</div>
+            <div class="font-semibold">🛒 (0)</div>
+            <span class="absolute -top-1 -right-1 bg-rodax-orange text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Categories Navigation -->
+  <div class="bg-gray-800 py-3">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center space-x-8 overflow-x-auto">
+        <div class="flex items-center space-x-2 whitespace-nowrap">
+          <span class="text-sm">🔥</span>
+          <span class="text-sm font-medium">Más Vendidos</span>
+        </div>
+        {featuredCategories.map((category) => (
+          <a 
+            href={category.href}
+            class="flex items-center space-x-2 hover:text-rodax-orange transition-colors whitespace-nowrap"
+          >
+            <span class="text-sm">{category.icon}</span>
+            <span class="text-sm">{category.name}</span>
+            <span class="text-xs text-gray-400">({category.count})</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hero Banner Section -->
+<section class="bg-gradient-to-r from-rodax-blue to-blue-600 text-white py-16">
+  <div class="container mx-auto px-4">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Left: Main Content -->
+      <div class="space-y-8">
+        <div class="space-y-4">
+          <h2 class="text-4xl lg:text-5xl font-bold leading-tight">
+            {title}
+          </h2>
+          <p class="text-xl text-blue-100 max-w-xl">
+            {subtitle}
+          </p>
+        </div>
+
+        <!-- Promotional Cards -->
+        <div class="grid md:grid-cols-3 gap-4">
+          {promos.map((promo) => (
+            <div class={`${promo.bgColor} rounded-lg p-4 text-center`}>
+              <div class="text-2xl mb-2">{promo.icon}</div>
+              <div class="font-bold text-sm">{promo.title}</div>
+              <div class="text-xs opacity-90">{promo.subtitle}</div>
+            </div>
+          ))}
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a 
+            href="/productos"
+            class="bg-rodax-orange hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-center"
+          >
+            Ver Todos los Productos
+          </a>
+          <a 
+            href="/catalogo"
+            class="border-2 border-white text-white hover:bg-white hover:text-rodax-blue font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 text-center"
+          >
+            Descargar Catálogo
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Featured Product/Visual -->
+      <div class="relative">
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+          <!-- Featured Product Card -->
+          <div class="bg-white rounded-xl p-6 shadow-xl">
+            <div class="flex items-center justify-between mb-4">
+              <span class="bg-red-500 text-white text-xs px-2 py-1 rounded">BESTSELLER</span>
+              <span class="text-gray-500 text-sm">⭐ 4.8 (120 reseñas)</span>
+            </div>
+                         <div class="text-center mb-4">
+               <div class="w-24 h-24 bg-gray-200 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                 <span class="text-4xl">⛽</span>
+               </div>
+               <h3 class="font-bold text-gray-800 mb-2">Filtro Combustible Fleetguard</h3>
+               <p class="text-sm text-gray-600 mb-3">Enroscable tipo sellado - Máxima protección</p>
+               <div class="flex items-center justify-center space-x-2">
+                 <span class="text-xs text-gray-500 line-through">$520.00</span>
+                 <span class="text-2xl font-bold text-rodax-orange">$450.00</span>
+               </div>
+             </div>
+            <button class="w-full bg-rodax-orange text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors">
+              Agregar al Carrito
+            </button>
+          </div>
+        </div>
+
+        <!-- Trust Indicators -->
+        <div class="mt-6 grid grid-cols-2 gap-4">
+          <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
+            <div class="text-2xl font-bold">15+</div>
+            <div class="text-sm">Años en el Mercado</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
+            <div class="text-2xl font-bold">5K+</div>
+            <div class="text-sm">Clientes Satisfechos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Custom scrollbar for category navigation */
+  .overflow-x-auto::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  .overflow-x-auto::-webkit-scrollbar-track {
+    background: #374151;
+  }
+  
+  .overflow-x-auto::-webkit-scrollbar-thumb {
+    background: #ea580c;
+    border-radius: 2px;
+  }
+
+  /* Smooth animations */
+  a, button {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+</style> 

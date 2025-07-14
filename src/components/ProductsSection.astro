@@ -1,0 +1,409 @@
+---
+// Amazon-style Products Section for Rodax Refacciones
+// Features product grid, categories, and promotional items
+
+interface ProductProps {
+  name: string;
+  price: number;
+  originalPrice?: number;
+  rating: number;
+  reviews: number;
+  image: string;
+  badge?: string;
+  category: string;
+  description: string;
+}
+
+// Real Rodax products data
+const featuredProducts: ProductProps[] = [
+  {
+    name: "Filtro para Combustible Enroscable Tipo Sellado",
+    price: 450,
+    originalPrice: 520,
+    rating: 4.8,
+    reviews: 156,
+    image: "⛽",
+    badge: "BESTSELLER",
+    category: "Filtros",
+    description: "Fleetguard - Máxima protección del sistema de combustible"
+  },
+  {
+    name: "Filtro para Combustible Enroscable Donaldson",
+    price: 435,
+    rating: 4.7,
+    reviews: 142,
+    image: "⛽",
+    category: "Filtros",
+    description: "Donaldson - Filtración superior para diesel y biodiesel"
+  },
+  {
+    name: "Filtro de Aire Primario para Motor",
+    price: 680,
+    originalPrice: 780,
+    rating: 4.9,
+    reviews: 203,
+    image: "🌪️",
+    badge: "PREMIUM",
+    category: "Filtros",
+    description: "Fleetguard - Protección avanzada del motor contra partículas"
+  },
+  {
+    name: "Filtro de Aire Primario Donaldson",
+    price: 665,
+    rating: 4.8,
+    reviews: 178,
+    image: "🌪️",
+    category: "Filtros",
+    description: "Donaldson - Tecnología PowerCore para mayor eficiencia"
+  },
+  {
+    name: "Filtro de Aire Secundario para Motor",
+    price: 320,
+    originalPrice: 380,
+    rating: 4.6,
+    reviews: 95,
+    image: "🌀",
+    badge: "OFERTA",
+    category: "Filtros",
+    description: "Donaldson - Filtro de seguridad para máxima protección"
+  },
+  {
+    name: "Filtro para Aceite de Motor Enroscable",
+    price: 285,
+    rating: 4.7,
+    reviews: 234,
+    image: "🛢️",
+    category: "Filtros",
+    description: "Fleetguard - Sellado hermético, larga duración"
+  },
+  {
+    name: "Filtro para Aceite Tipo Cartucho",
+    price: 195,
+    originalPrice: 240,
+    rating: 4.5,
+    reviews: 167,
+    image: "🔧",
+    badge: "NUEVO",
+    category: "Filtros",
+    description: "Fleetguard - Diseño compacto, fácil instalación"
+  },
+  {
+    name: "Filtro para Refrigerante Anticongelante",
+    price: 380,
+    rating: 4.6,
+    reviews: 89,
+    image: "❄️",
+    category: "Filtros",
+    description: "Fleetguard - Protege el sistema de enfriamiento"
+  },
+  {
+    name: "Filtro Separador de Agua y Combustible",
+    price: 580,
+    originalPrice: 650,
+    rating: 4.9,
+    reviews: 145,
+    image: "💧",
+    badge: "PREMIUM",
+    category: "Filtros",
+    description: "Fleetguard - Elimina agua e impurezas del combustible"
+  },
+  {
+    name: "Juego de Mangueras Espiral 15ft Philips",
+    price: 1850,
+    rating: 4.8,
+    reviews: 76,
+    image: "🔴",
+    category: "Eléctrico",
+    description: "Philips - Mangueras roja y azul, resistentes y duraderas"
+  },
+  {
+    name: "Manita de Acople Azul Philips",
+    price: 125,
+    originalPrice: 145,
+    rating: 4.4,
+    reviews: 63,
+    image: "🔵",
+    badge: "OFERTA",
+    category: "Eléctrico",
+    description: "Philips - Conexión segura para sistemas neumáticos"
+  },
+  {
+    name: "Manita de Acople Rojo Philips",
+    price: 125,
+    originalPrice: 145,
+    rating: 4.4,
+    reviews: 58,
+    image: "🔴",
+    badge: "OFERTA",
+    category: "Eléctrico",
+    description: "Philips - Alta resistencia a la presión"
+  },
+  {
+    name: "Conector de 7 Líneas Tipo Hembra",
+    price: 95,
+    rating: 4.3,
+    reviews: 112,
+    image: "🔌",
+    category: "Eléctrico",
+    description: "Philips - Conexión eléctrica segura para remolques"
+  },
+  {
+    name: "Cable 7 Líneas de 12\" Negro Philips",
+    price: 180,
+    rating: 4.5,
+    reviews: 87,
+    image: "⚫",
+    category: "Eléctrico",
+    description: "Philips - Cable robusto para aplicaciones pesadas"
+  },
+  {
+    name: "Cable 7 Líneas 15\" ABS Verde AMTRK",
+    price: 220,
+    originalPrice: 260,
+    rating: 4.6,
+    reviews: 94,
+    image: "🟢",
+    badge: "NUEVO",
+    category: "Eléctrico",
+    description: "AMTRK - Compatible con sistemas ABS, alta calidad"
+  }
+];
+
+// Product categories for filter sidebar
+const categories = [
+  { name: "Filtros", count: 2847, icon: "🔧" },
+  { name: "Eléctrico", count: 1265, icon: "⚡" },
+  { name: "Frenos", count: 1120, icon: "🛑" },
+  { name: "Motor", count: 3180, icon: "⚙️" },
+  { name: "Transmisión", count: 845, icon: "🔄" },
+  { name: "Suspensión", count: 920, icon: "🏗️" },
+  { name: "Lubricantes", count: 480, icon: "🛢️" },
+  { name: "Iluminación", count: 350, icon: "💡" }
+];
+
+// Helper function to render stars
+function renderStars(rating: number) {
+  const fullStars = Math.floor(rating);
+  const hasHalfStar = rating % 1 !== 0;
+  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+  
+  return '⭐'.repeat(fullStars) + (hasHalfStar ? '⭐' : '') + '☆'.repeat(emptyStars);
+}
+---
+
+<!-- Products Section -->
+<section class="bg-gray-50 py-12">
+  <div class="container mx-auto px-4">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">
+        Productos Destacados
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Encuentra las mejores refacciones de marcas reconocidas mundialmente con garantía y entrega inmediata
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-4 gap-8">
+      
+      <!-- Sidebar Categories (Amazon-style) -->
+      <div class="lg:col-span-1">
+        <div class="bg-white rounded-lg shadow-sm p-6 sticky top-4">
+          <h3 class="font-bold text-gray-800 mb-4 border-b pb-2">
+            Categorías
+          </h3>
+          <div class="space-y-3">
+            {categories.map((category) => (
+              <a 
+                href={`/categoria/${category.name.toLowerCase()}`}
+                class="flex items-center justify-between p-2 rounded hover:bg-gray-50 transition-colors group"
+              >
+                <div class="flex items-center space-x-3">
+                  <span class="text-lg">{category.icon}</span>
+                  <span class="text-gray-700 group-hover:text-rodax-orange">
+                    {category.name}
+                  </span>
+                </div>
+                <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                  {category.count.toLocaleString()}
+                </span>
+              </a>
+            ))}
+          </div>
+
+          <!-- Filters -->
+          <div class="mt-8 pt-6 border-t">
+            <h4 class="font-semibold text-gray-800 mb-4">Filtros</h4>
+            
+            <!-- Price Range -->
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-2">
+                Rango de Precio
+              </label>
+              <div class="flex space-x-2">
+                <input 
+                  type="number" 
+                  placeholder="Min" 
+                  class="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-rodax-orange"
+                />
+                <input 
+                  type="number" 
+                  placeholder="Max" 
+                  class="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-rodax-orange"
+                />
+              </div>
+            </div>
+
+            <!-- Brand Filter -->
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-2">
+                Marca
+              </label>
+                           <div class="space-y-2">
+               {["Fleetguard", "Donaldson", "Philips", "AMTRK", "Fleetrite"].map((brand) => (
+                 <label class="flex items-center">
+                   <input type="checkbox" class="rounded text-rodax-orange focus:ring-rodax-orange" />
+                   <span class="ml-2 text-sm text-gray-600">{brand}</span>
+                 </label>
+               ))}
+             </div>
+            </div>
+
+            <!-- Rating Filter -->
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">
+                Calificación
+              </label>
+              <div class="space-y-2">
+                {[4, 3, 2, 1].map((rating) => (
+                  <label class="flex items-center">
+                    <input type="checkbox" class="rounded text-rodax-orange focus:ring-rodax-orange" />
+                    <span class="ml-2 text-sm text-gray-600">
+                      {'⭐'.repeat(rating)}{'☆'.repeat(5-rating)} y más
+                    </span>
+                  </label>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="lg:col-span-3">
+        
+        <!-- Sort Bar -->
+        <div class="flex justify-between items-center mb-6 bg-white p-4 rounded-lg shadow-sm">
+                     <div class="text-sm text-gray-600">
+             Mostrando {featuredProducts.length} de 11,007+ productos
+           </div>
+          <select class="border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-rodax-orange">
+            <option>Ordenar por: Relevancia</option>
+            <option>Precio: Menor a Mayor</option>
+            <option>Precio: Mayor a Menor</option>
+            <option>Mejor Calificados</option>
+            <option>Más Vendidos</option>
+          </select>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {featuredProducts.map((product) => (
+            <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden group">
+              
+              <!-- Product Image -->
+              <div class="relative p-6 bg-gray-50">
+                {product.badge && (
+                  <span class={`absolute top-2 left-2 text-xs px-2 py-1 rounded font-semibold ${
+                    product.badge === 'BESTSELLER' ? 'bg-red-500 text-white' :
+                    product.badge === 'NUEVO' ? 'bg-green-500 text-white' :
+                    product.badge === 'OFERTA' ? 'bg-orange-500 text-white' :
+                    product.badge === 'PREMIUM' ? 'bg-purple-500 text-white' :
+                    'bg-blue-500 text-white'
+                  }`}>
+                    {product.badge}
+                  </span>
+                )}
+                <div class="text-6xl text-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  {product.image}
+                </div>
+              </div>
+
+              <!-- Product Info -->
+              <div class="p-4">
+                <div class="mb-2">
+                  <span class="text-xs text-rodax-orange font-medium bg-orange-50 px-2 py-1 rounded">
+                    {product.category}
+                  </span>
+                </div>
+                
+                <h3 class="font-semibold text-gray-800 mb-2 line-clamp-2 group-hover:text-rodax-orange transition-colors">
+                  {product.name}
+                </h3>
+                
+                <p class="text-sm text-gray-600 mb-3 line-clamp-2">
+                  {product.description}
+                </p>
+
+                <!-- Rating -->
+                <div class="flex items-center space-x-2 mb-3">
+                  <div class="text-yellow-400 text-sm">
+                    {renderStars(product.rating)}
+                  </div>
+                  <span class="text-sm text-gray-600">
+                    {product.rating} ({product.reviews})
+                  </span>
+                </div>
+
+                <!-- Price -->
+                <div class="flex items-center space-x-2 mb-4">
+                  {product.originalPrice && (
+                    <span class="text-sm text-gray-500 line-through">
+                      ${product.originalPrice.toLocaleString()}
+                    </span>
+                  )}
+                  <span class="text-xl font-bold text-rodax-orange">
+                    ${product.price.toLocaleString()}
+                  </span>
+                  {product.originalPrice && (
+                    <span class="text-xs bg-red-100 text-red-800 px-1 py-0.5 rounded">
+                      -{Math.round((1 - product.price / product.originalPrice) * 100)}%
+                    </span>
+                  )}
+                </div>
+
+                <!-- Actions -->
+                <div class="space-y-2">
+                  <button class="w-full bg-rodax-orange hover:bg-orange-600 text-white py-2 px-4 rounded-lg font-medium transition-colors">
+                    Agregar al Carrito
+                  </button>
+                  <button class="w-full border border-gray-300 hover:border-rodax-orange text-gray-700 hover:text-rodax-orange py-2 px-4 rounded-lg font-medium transition-colors">
+                    Ver Detalles
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Load More -->
+        <div class="text-center mt-10">
+          <button class="bg-white border border-gray-300 hover:border-rodax-orange text-gray-700 hover:text-rodax-orange px-8 py-3 rounded-lg font-medium transition-colors">
+            Cargar Más Productos
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Line clamp utility */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style> 

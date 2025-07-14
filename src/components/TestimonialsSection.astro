@@ -1,0 +1,247 @@
+---
+// Testimonials Section for Rodax Refacciones
+// Customer reviews and success stories
+
+interface TestimonialProps {
+  name: string;
+  company: string;
+  location: string;
+  rating: number;
+  text: string;
+  avatar: string;
+  trucksCount?: number;
+  yearsAsClient?: number;
+}
+
+// Customer testimonials data
+const testimonials: TestimonialProps[] = [
+  {
+    name: "Carlos Hernández",
+    company: "Transportes del Norte SA",
+    location: "Saltillo, Coahuila",
+    rating: 5,
+    text: "Llevo 8 años comprando en Rodax y nunca me han fallado. La calidad de las refacciones es excelente y siempre tienen lo que necesito en stock. Su servicio de entrega el mismo día me ha salvado muchas veces.",
+    avatar: "👨‍💼",
+    trucksCount: 25,
+    yearsAsClient: 8
+  },
+  {
+    name: "María Elena Soto",
+    company: "Logística Monterrey",
+    location: "Monterrey, Nuevo León",
+    rating: 5,
+    text: "El equipo técnico de Rodax es excepcional. Me ayudaron a diagnosticar un problema complejo en mi flota y me recomendaron exactamente las refacciones correctas. Ahorro tiempo y dinero con sus consejos.",
+    avatar: "👩‍💼",
+    trucksCount: 15,
+    yearsAsClient: 5
+  },
+  {
+    name: "Roberto Martínez",
+    company: "Carga Pesada Express",
+    location: "Torreón, Coahuila",
+    rating: 5,
+    text: "Los precios de Rodax son muy competitivos y la calidad es garantizada. Manejo una flota de 40 camiones y confío en ellos para el mantenimiento preventivo. Su sistema de pedidos en línea es muy fácil de usar.",
+    avatar: "👨‍🔧",
+    trucksCount: 40,
+    yearsAsClient: 12
+  },
+  {
+    name: "Luis Fernando García",
+    company: "Transportes García Hermanos",
+    location: "Piedras Negras, Coahuila",
+    rating: 5,
+    text: "La atención personalizada de Rodax es lo que más valoro. Conocen mi flota y me avisan cuando hay promociones en las refacciones que habitualmente compro. Son verdaderos socios de negocio.",
+    avatar: "👨‍💼",
+    trucksCount: 12,
+    yearsAsClient: 6
+  },
+  {
+    name: "Ana Patricia Ruiz",
+    company: "Fletes del Bajío",
+    location: "San Luis Potosí, SLP",
+    rating: 5,
+    text: "Rodax me ha ayudado a reducir mis costos de mantenimiento en un 20%. Sus filtros Fleetguard duran más que otras marcas y el aceite Shell Rotella que me recomiendan mantiene mis motores en perfectas condiciones.",
+    avatar: "👩‍💼",
+    trucksCount: 18,
+    yearsAsClient: 4
+  },
+  {
+    name: "Javier Morales",
+    company: "Operador Independiente",
+    location: "Saltillo, Coahuila",
+    rating: 5,
+    text: "Como operador independiente, cada peso cuenta. En Rodax siempre encuentro ofertas y me dan facilidades de pago. Además, su garantía me da tranquilidad en cada compra. Son los mejores de la región.",
+    avatar: "👨‍🚛",
+    trucksCount: 2,
+    yearsAsClient: 3
+  }
+];
+
+// Success metrics
+const successMetrics = [
+  { metric: "98%", label: "Satisfacción del Cliente", icon: "😊" },
+  { metric: "24 hrs", label: "Tiempo Promedio de Entrega", icon: "🚚" },
+  { metric: "5,000+", label: "Clientes Activos", icon: "👥" },
+  { metric: "99.8%", label: "Disponibilidad de Productos", icon: "📦" }
+];
+
+function renderStars(rating: number) {
+  return '⭐'.repeat(rating);
+}
+---
+
+<!-- Testimonials Section -->
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+        Lo Que Dicen Nuestros Clientes
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Miles de transportistas confían en Rodax para mantener sus flotas funcionando. 
+        Escucha sus historias de éxito.
+      </p>
+    </div>
+
+    <!-- Success Metrics -->
+    <div class="grid md:grid-cols-4 gap-6 mb-16">
+      {successMetrics.map((metric) => (
+        <div class="bg-white rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-shadow">
+          <div class="text-4xl mb-3">{metric.icon}</div>
+          <div class="text-3xl font-bold text-rodax-orange mb-2">{metric.metric}</div>
+          <div class="text-gray-600 text-sm">{metric.label}</div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Testimonials Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {testimonials.map((testimonial) => (
+        <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+          
+          <!-- Rating -->
+          <div class="flex items-center justify-between mb-4">
+            <div class="text-yellow-400">
+              {renderStars(testimonial.rating)}
+            </div>
+            <div class="text-xs text-gray-500 bg-green-100 text-green-800 px-2 py-1 rounded">
+              Cliente Verificado
+            </div>
+          </div>
+
+          <!-- Testimonial Text -->
+          <blockquote class="text-gray-700 mb-6 leading-relaxed">
+            "{testimonial.text}"
+          </blockquote>
+
+          <!-- Customer Info -->
+          <div class="border-t pt-4">
+            <div class="flex items-center space-x-3 mb-3">
+              <div class="text-3xl">{testimonial.avatar}</div>
+              <div>
+                <h4 class="font-semibold text-gray-800">{testimonial.name}</h4>
+                <p class="text-sm text-gray-600">{testimonial.company}</p>
+                <p class="text-xs text-gray-500 flex items-center">
+                  📍 {testimonial.location}
+                </p>
+              </div>
+            </div>
+
+            <!-- Customer Stats -->
+            <div class="flex justify-between text-xs text-gray-600 bg-gray-50 rounded-lg p-3">
+              <div class="text-center">
+                <div class="font-semibold text-rodax-orange">{testimonial.trucksCount}</div>
+                <div>Unidades</div>
+              </div>
+              <div class="text-center">
+                <div class="font-semibold text-rodax-orange">{testimonial.yearsAsClient}+</div>
+                <div>Años Cliente</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Customer Types -->
+    <div class="mt-16">
+      <h3 class="text-2xl font-bold text-gray-800 text-center mb-8">
+        Atendemos Todo Tipo de Operaciones
+      </h3>
+      
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="text-center p-6 bg-white rounded-lg shadow-sm">
+          <div class="text-4xl mb-3">🏢</div>
+          <h4 class="font-semibold text-gray-800 mb-2">Grandes Flotas</h4>
+          <p class="text-sm text-gray-600">Empresas con 50+ unidades</p>
+          <div class="text-xs text-rodax-orange font-medium mt-2">1,200+ clientes</div>
+        </div>
+        
+        <div class="text-center p-6 bg-white rounded-lg shadow-sm">
+          <div class="text-4xl mb-3">🚛</div>
+          <h4 class="font-semibold text-gray-800 mb-2">Medianas Empresas</h4>
+          <p class="text-sm text-gray-600">Flotas de 10-50 camiones</p>
+          <div class="text-xs text-rodax-orange font-medium mt-2">2,800+ clientes</div>
+        </div>
+        
+        <div class="text-center p-6 bg-white rounded-lg shadow-sm">
+          <div class="text-4xl mb-3">🔧</div>
+          <h4 class="font-semibold text-gray-800 mb-2">Talleres</h4>
+          <p class="text-sm text-gray-600">Servicios especializados</p>
+          <div class="text-xs text-rodax-orange font-medium mt-2">650+ talleres</div>
+        </div>
+        
+        <div class="text-center p-6 bg-white rounded-lg shadow-sm">
+          <div class="text-4xl mb-3">👨‍🚛</div>
+          <h4 class="font-semibold text-gray-800 mb-2">Hombre Camión</h4>
+          <p class="text-sm text-gray-600">Operadores independientes</p>
+          <div class="text-xs text-rodax-orange font-medium mt-2">350+ operadores</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="mt-16 bg-gradient-to-r from-rodax-blue to-blue-600 rounded-2xl p-8 text-white text-center">
+      <h3 class="text-2xl font-bold mb-4">
+        ¿Listo para Unirte a Nuestros Clientes Satisfechos?
+      </h3>
+      <p class="text-blue-100 mb-6 max-w-2xl mx-auto">
+        Únete a más de 5,000 transportistas que ya confían en Rodax para sus refacciones. 
+        Comienza con una cotización gratuita hoy mismo.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a 
+          href="/cotizacion"
+          class="bg-rodax-orange hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg transition-colors"
+        >
+          Solicitar Cotización
+        </a>
+        <a 
+          href="tel:+528441234567"
+          class="border-2 border-white text-white hover:bg-white hover:text-rodax-blue font-bold py-3 px-8 rounded-lg transition-colors"
+        >
+          📞 Hablar con Experto
+        </a>
+      </div>
+
+      <!-- Trust Indicators -->
+      <div class="mt-8 pt-6 border-t border-blue-400 grid md:grid-cols-3 gap-4 text-sm">
+        <div class="flex items-center justify-center space-x-2">
+          <span>🛡️</span>
+          <span>Garantía de 12 meses</span>
+        </div>
+        <div class="flex items-center justify-center space-x-2">
+          <span>🚚</span>
+          <span>Envío gratis +$2,000</span>
+        </div>
+        <div class="flex items-center justify-center space-x-2">
+          <span>💳</span>
+          <span>Facilidades de pago</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 
