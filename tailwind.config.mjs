@@ -4,12 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Professional trucking industry colors
-        'rodax-blue': '#1e40af', // Professional blue
-        'rodax-orange': '#ea580c', // Truck orange
-        'rodax-gray': '#374151', // Industrial gray
-        'rodax-dark': '#111827', // Dark professional
-        'rodax-light': '#f8fafc', // Clean light
+        // Real Rodax brand colors - exact colors from user
+        'rodax-light-blue': '#93EEFF', // Light blue
+        'rodax-blue': '#2675AF', // Main blue  
+        'rodax-white': '#ECEFF4', // Off-white
+        'rodax-dark': '#1a202c', // Dark navy
+        'rodax-gray': '#4a5568', // Gray for text
       },
       fontFamily: {
         'sans': ['Inter', 'system-ui', 'sans-serif'],

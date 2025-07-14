@@ -58,8 +58,8 @@ const promos = [
           <span>📞 (844) 123-4567</span>
         </div>
         <div class="flex space-x-4">
-          <a href="/login" class="hover:text-rodax-orange">Iniciar Sesión</a>
-          <a href="/register" class="hover:text-rodax-orange">Registrarse</a>
+          <a href="/login" class="hover:text-rodax-light-blue">Iniciar Sesión</a>
+          <a href="/register" class="hover:text-rodax-light-blue">Registrarse</a>
         </div>
       </div>
     </div>
@@ -71,13 +71,11 @@ const promos = [
       <div class="flex items-center justify-between">
         <!-- Logo -->
         <div class="flex items-center space-x-3">
-          <div class="w-12 h-12 bg-rodax-orange rounded-lg flex items-center justify-center">
-            <span class="text-xl font-bold">R</span>
-          </div>
-          <div>
-            <h1 class="text-2xl font-bold text-rodax-orange">RODAX</h1>
-            <p class="text-xs text-gray-300">Refacciones</p>
-          </div>
+          <img 
+            src="/assets/logo.png" 
+            alt="Rodax Refacciones Logo" 
+            class="h-12 w-auto"
+          />
         </div>
 
         <!-- Search Bar (Amazon-style) -->
@@ -95,9 +93,9 @@ const promos = [
             <input 
               type="text" 
               placeholder={searchPlaceholder}
-              class="w-full py-3 pl-40 pr-16 text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-rodax-orange"
+              class="w-full py-3 pl-40 pr-16 text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-rodax-light-blue"
             />
-            <button class="absolute right-0 top-0 h-full bg-rodax-orange hover:bg-orange-600 px-6 rounded-r-lg transition-colors">
+            <button class="absolute right-0 top-0 h-full bg-rodax-blue hover:bg-blue-700 px-6 rounded-r-lg transition-colors">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
               </svg>
@@ -114,7 +112,7 @@ const promos = [
           <div class="text-center relative">
             <div class="text-xs text-gray-300">Carrito</div>
             <div class="font-semibold">🛒 (0)</div>
-            <span class="absolute -top-1 -right-1 bg-rodax-orange text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+            <span class="absolute -top-1 -right-1 bg-rodax-blue text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
           </div>
         </div>
       </div>
@@ -132,7 +130,7 @@ const promos = [
         {featuredCategories.map((category) => (
           <a 
             href={category.href}
-            class="flex items-center space-x-2 hover:text-rodax-orange transition-colors whitespace-nowrap"
+            class="flex items-center space-x-2 hover:text-rodax-light-blue transition-colors whitespace-nowrap"
           >
             <span class="text-sm">{category.icon}</span>
             <span class="text-sm">{category.name}</span>
@@ -145,7 +143,7 @@ const promos = [
 </section>
 
 <!-- Hero Banner Section -->
-<section class="bg-gradient-to-r from-rodax-blue to-blue-600 text-white py-16">
+<section class="bg-gradient-to-r from-rodax-blue to-rodax-light-blue text-white py-16">
   <div class="container mx-auto px-4">
     <div class="grid lg:grid-cols-2 gap-12 items-center">
       <!-- Left: Main Content -->
@@ -174,13 +172,13 @@ const promos = [
         <div class="flex flex-col sm:flex-row gap-4">
           <a 
             href="/productos"
-            class="bg-rodax-orange hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-center"
+            class="bg-rodax-blue hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-center"
           >
             Ver Todos los Productos
           </a>
           <a 
             href="/catalogo"
-            class="border-2 border-white text-white hover:bg-white hover:text-rodax-blue font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 text-center"
+            class="border-2 border-white text-white hover:bg-rodax-white hover:text-rodax-dark font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 text-center"
           >
             Descargar Catálogo
           </a>
@@ -204,10 +202,10 @@ const promos = [
                <p class="text-sm text-gray-600 mb-3">Enroscable tipo sellado - Máxima protección</p>
                <div class="flex items-center justify-center space-x-2">
                  <span class="text-xs text-gray-500 line-through">$520.00</span>
-                 <span class="text-2xl font-bold text-rodax-orange">$450.00</span>
+                 <span class="text-2xl font-bold text-rodax-blue">$450.00</span>
                </div>
              </div>
-            <button class="w-full bg-rodax-orange text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors">
+            <button class="w-full bg-rodax-blue text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
               Agregar al Carrito
             </button>
           </div>

@@ -2,6 +2,10 @@
   "name": "rodax",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+  "node": ">=18.20.8"
+},
+
   "scripts": {
     "dev": "astro dev",
     "start": "node ./dist/server/entry.mjs",
